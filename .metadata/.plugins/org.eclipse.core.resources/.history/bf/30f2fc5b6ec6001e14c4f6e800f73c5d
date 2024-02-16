@@ -1,0 +1,7 @@
+package com.carsSell.carShop.Repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CarsRepo extends JpaRepository<, ID>{
+
+}

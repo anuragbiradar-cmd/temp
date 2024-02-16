@@ -1,0 +1,51 @@
+package com.carsSell.carShop.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.carsSell.carShop.CarsEntity;
+import com.carsSell.carShop.Repository.CarsRepo;
+import com.carsSell.carShop.StockCars.StockCars;
+@Service
+public class ServiceLogic {
+	@Autowired
+	CarsRepo cars;
+	
+public ResponseEntity PostCars(List<CarsEntity> carsEntity) {
+for(CarsEntity s:carsEntity) {
+	cars.save(s);
+}
+	return ResponseEntity.ok(HttpStatus.BAD_REQUEST);
+	
+}
+
+public List<StockCars> getAllCars(){
+	ArrayList<StockCars> arrayList = new ArrayList<StockCars>();
+	List<CarsEntity> findAll = cars.findAll();
+	for(CarsEntity c:findAll) {
+		StockCars stockCars = new StockCars();
+		stockCars.setCarId(c.getCarId());
+		stockCars.setCarName(c.getCarName());
+		stockCars.setFuel(c.getFuel());
+		arrayList.add(stockCars);
+	}
+	return arrayList;
+	
+}
+ public StockCars getbyId(String id) {
+	 StockCars stockCars = new StockCars();
+	 Optional<CarsEntity> findById = cars.findById(id);
+	 stockCars.setCarId(findById.get().getCarId());
+	 stockCars.setCarName(findById.get().getCarName());
+	 stockCars.setFuel(findById.get().getFuel());
+	 
+	 return stockCars;
+ }
+}

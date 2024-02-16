@@ -1,0 +1,26 @@
+package com.carsSell.carShop.Controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.carsSell.carShop.StockCars.StockCars;
+
+@RestController
+@RequestMapping("/cars")
+public class ControllerClass {
+	@GetMapping("stock")
+	public StockCars carsList() {
+		StockCars stock=new StockCars();
+		return stock;
+	}
+	
+	@postMapping("/postCars")\
+	
+	public ResponseEntity PostCars(@RequestBody StockCars stock) {
+		
+	}
+
+}

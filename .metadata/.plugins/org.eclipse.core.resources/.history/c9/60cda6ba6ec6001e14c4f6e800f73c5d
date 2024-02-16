@@ -1,0 +1,16 @@
+package com.carsSell.carShop.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.carsSell.carShop.Repository.CarsRepo;
+import com.carsSell.carShop.StockCars.StockCars;
+
+public class ServiceLogic {
+	@Autowired
+	CarsRepo cars;
+	
+public StockCars PostCars(StockCars stock) {
+	
+}
+
+}

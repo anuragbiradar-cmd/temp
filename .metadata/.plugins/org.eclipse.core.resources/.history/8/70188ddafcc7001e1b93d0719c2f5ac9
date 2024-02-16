@@ -1,0 +1,27 @@
+package com.carsSell.carShop.Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.carsSell.carShop.CarsEntity;
+import com.carsSell.carShop.Repository.CarsRepo;
+import com.carsSell.carShop.StockCars.StockCars;
+@Service
+public class ServiceLogic {
+	@Autowired
+	CarsRepo cars;
+	
+public ResponseEntity PostCars(List<CarsEntity> carsEntity) {
+for(CarsEntity s:carsEntity) {
+	cars.save(s);
+}
+	return ResponseEntity.ok(HttpStatus.BAD_REQUEST);
+	
+}
+
+}

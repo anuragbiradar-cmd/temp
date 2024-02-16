@@ -1,0 +1,5 @@
+package com.carsSell.carShop.Repository;
+
+public interface CarsRepo {
+
+}
